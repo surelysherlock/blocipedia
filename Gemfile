@@ -17,7 +17,7 @@ end
 group :development do
   # Use sqlite3 as the development database for Active Record
   gem 'sqlite3'
-  gem 'web-console', '~> 2.0'
+  gem 'web-console', '~> 3.5.1'
 end
 
 group :development, :test do
@@ -25,7 +25,10 @@ group :development, :test do
   gem 'rails-controller-testing'
 end
 
+gem 'devise'
 gem 'bootstrap-sass'
+
+gem 'figaro', '1.0'
 
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
