@@ -1,0 +1,13 @@
+<h1>The Wealth of Knowledge from all Wikis lies before You</h1>
+
+<a href="#" class="btn btn-sq-sm btn-success">New</a>
+
+<% @wikis.each do |wiki| %>
+  <div class="media">
+    <div class="media-body">
+      <h4 class="media-heading">
+        <p><%= link_to wiki.title, wiki_path(wiki.id) %></p>
+      </h4>
+    </div>
+  </div>
+<% end %>
