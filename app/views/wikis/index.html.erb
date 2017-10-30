@@ -1,6 +1,6 @@
 <h1>The Wealth of Knowledge from all Wikis lies before You</h1>
 
-<a href="#" class="btn btn-sq-sm btn-success">New</a>
+<%= link_to "New", new_wiki_path(@wiki), class: 'btn btn-sq-sm btn-success' %>
 
 <% @wikis.each do |wiki| %>
   <div class="media">
