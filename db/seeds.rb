@@ -23,7 +23,7 @@ puts "#{User.count} users created"
 wiki = Wiki.create!(
    user:         users.sample,
   :title        => Faker::LordOfTheRings.location,
-  :body         => Faker::Lorem.paragraphs(1),
+  :body         => Faker::Hobbit.quote,
   private:      false
 )
 end
