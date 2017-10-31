@@ -6,7 +6,7 @@ class User < ApplicationRecord
 
   after_initialize :init
 
-  after_create :send_email
+  ## after_create :send_email
 
   def send_email
     UserMailer.send_email(self).deliver_now

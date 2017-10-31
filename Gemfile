@@ -23,9 +23,11 @@ end
 group :development, :test do
   gem 'rspec-rails', '~> 3.0'
   gem 'rails-controller-testing'
+  gem 'faker', :git => 'git://github.com/stympy/faker.git', :branch => 'master'
 end
 
 gem 'devise'
+
 gem 'bootstrap-sass'
 
 gem 'figaro', '1.0'
