@@ -28,6 +28,8 @@ end
 
 gem 'devise'
 
+gem 'redcarpet'
+
 gem 'bootstrap-sass'
 
 gem 'figaro', '1.0'

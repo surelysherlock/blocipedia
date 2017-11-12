@@ -6,4 +6,4 @@
 <%= link_to "Delete", [ @wiki], method: :delete, class: 'btn btn-sq-sm btn-danger', data: { confirm: 'Are you sure you want to delete this wiki?' } %>
 <br>
 <br>
-<p><%= @wiki.body %></p>
+<p><%= markdown.render(@wiki.body).html_safe %></p>
