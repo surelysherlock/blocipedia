@@ -43,6 +43,11 @@ class ChargesController < ApplicationController
 
   def edit
     @charge = Stripe::Charge.list.data[0].id
+    newArray = Wiki.where(user_id: current_user.id)
+    newArray.each do |w|
+      w.private = false
+      w.save
+    end
     current_user.standard!
     flash[:alert] = "We are sorry to see you go"
     redirect_to wikis_path

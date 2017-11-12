@@ -36,12 +36,12 @@ RSpec.describe WikisController, type: :controller do
 
   describe "GET new" do
     it "returns http success" do
-      get :new
+      get :new, params: { id: my_wiki.id }
       expect(response).to have_http_status(:success)
     end
 
     it "renders the #new view" do
-      get :new
+      get :new, params: { id: my_wiki.id }
       expect(response).to render_template :new
     end
 
