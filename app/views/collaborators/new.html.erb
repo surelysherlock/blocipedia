@@ -1,0 +1,15 @@
+<h1>Add Collaborators </h1>
+
+<div class="row">
+  <div class="col-md-8">
+    <%= form_for [@wiki, @collaborator] do |c| %>
+      <div class="form-group">
+        <%= c.label :email %>
+        <%= c.text_field :email, class: 'form-control', placeholder: "Enter collaborator email" %>
+      </div>
+      <div class="form-group">
+        <%= c.submit "Save", class: 'btn btn-success' %>
+      </div>
+    <% end %>
+  </div>
+</div>

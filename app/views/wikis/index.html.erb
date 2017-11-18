@@ -8,13 +8,7 @@
   <div class="media">
     <div class="media-body">
       <h4 class="media-heading">
-      <% if (user.role == 'admin' || user.role == 'premium') %>
         <p><%= link_to wiki.title, wiki_path(wiki.id) %></p>
-      <% elsif user.role == 'standard' && wiki.private == true %>
-        <p> This wiki is private </p>
-      <% elsif user.role == 'standard' && wiki.private == false %>
-        <p><%= link_to wiki.title, wiki_path(wiki.id) %></p>
-      <% end %>
       </h4>
     </div>
   </div>
