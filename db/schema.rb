@@ -10,14 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171118020701) do
-
-  create_table "collaborator", force: :cascade do |t|
-    t.string "email"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["id"], name: "index_collaborator_on_id", unique: true
-  end
+ActiveRecord::Schema.define(version: 20171123143844) do
 
   create_table "collaborators", force: :cascade do |t|
     t.string "email"
@@ -25,16 +18,6 @@ ActiveRecord::Schema.define(version: 20171118020701) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["wiki_id"], name: "index_collaborators_on_wiki_id"
-  end
-
-  create_table "collaborators_wikis", id: false, force: :cascade do |t|
-    t.integer "wiki_id"
-    t.integer "collaborator_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "email"
-    t.index ["collaborator_id"], name: "index_collaborators_wikis_on_collaborator_id"
-    t.index ["wiki_id"], name: "index_collaborators_wikis_on_wiki_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -57,15 +40,6 @@ ActiveRecord::Schema.define(version: 20171118020701) do
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
-  end
-
-  create_table "wiki", force: :cascade do |t|
-    t.string "title"
-    t.text "body"
-    t.boolean "private"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["id"], name: "index_wiki_on_id", unique: true
   end
 
   create_table "wikis", force: :cascade do |t|

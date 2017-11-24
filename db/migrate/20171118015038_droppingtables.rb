@@ -1,6 +1,5 @@
 class Droppingtables < ActiveRecord::Migration[5.1]
   def change
-    drop_table :wiki_collab
     create_table :collaborators_wikis, id: false do |t|
       t.integer :wiki_id
       t.integer :collaborator_id

@@ -3,5 +3,19 @@
 <%= link_to "Edit", edit_wiki_path(@wiki), class: 'btn btn-sq-sm btn-info' %>
 <%= link_to "Delete", [ @wiki], method: :delete, class: 'btn btn-sq-sm btn-danger', data: { confirm: 'Are you sure you want to delete this wiki?' } %>
 <br>
-<br>
+
+<h5> Collaborators </h5>
+
+<% @wiki.collaborators.each do |c| %>
+  <div class="media">
+    <div class="media-body">
+      <h8 class="media-heading">
+        <p><%=  c.email %></p>
+      </h8>
+    </div>
+  </div>
+<% end %>
+
+<h4> Content </h4>
+
 <p><%= markdown.render(@wiki.body).html_safe %></p>

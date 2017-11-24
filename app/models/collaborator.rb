@@ -1,5 +1,3 @@
 class Collaborator < ApplicationRecord
-  has_and_belongs_to_many :wikis
-
-  validates :wiki, presence: true
+  belongs_to :wiki
 end

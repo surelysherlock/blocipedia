@@ -24,15 +24,18 @@
       </div>
     <% end %>
     <% if @wiki.private == true %>
-      <% if @collaborator == nil %>
+      <% if @wiki.collaborators.empty? %>
         <h5> No collaborators yet </h5>
         <%= link_to "Add Collaborators", new_wiki_collaborator_path(@wiki), class: 'btn btn-sq-sm btn-primary' %>
       <% else %>
-        <%= form_for @collaborator do |c| %>
-          <div class="form-group">
-            <h4> Collaborators </h4>
-            <%= c.label :email %>
-            <%= c.text_field :email, class: 'form-control', placeholder: "Enter collaborator email" %>
+        <h4> Collaborators </h4>
+        <% @wiki.collaborators.each do |c| %>
+          <div class="media">
+            <div class="media-body">
+              <h8 class="media-heading">
+                <p><%= link_to c.email, wiki_collaborator_path(c.id) %></p>
+              </h8>
+            </div>
           </div>
         <% end %>
       <% end %>

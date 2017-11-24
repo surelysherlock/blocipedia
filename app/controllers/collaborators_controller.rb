@@ -5,7 +5,7 @@ class CollaboratorsController < ApplicationController
   end 
 
   def show
-    @collaborator = Collaborator.find(params[:id])
+    @collaborator = Collaborator.find(params[:wiki_id])
   end
 
   def new
@@ -15,9 +15,9 @@ class CollaboratorsController < ApplicationController
 
   def create 
     @wiki = Wiki.find(params[:wiki_id])
-    @wiki.collaborators.email = params[:collaborator][:email]
+    collaborator = @wiki.collaborators.new(collaborator_params)
     
-    if @collaborator.save
+    if collaborator.save
       flash[:notice] = "Collaborator added"
       redirect_to wikis_path
     else
@@ -31,7 +31,24 @@ class CollaboratorsController < ApplicationController
     @collaborator = Collaborator.find(params[:id])
   end
 
+  def destroy
+    @collaborator = Collaborator.find(params[:wiki_id])
+
+    if @collaborator.destroy
+      flash[:notice] = "\"#{@collaborator.email}\" was removed from collaborators."
+      redirect_to wiki_path
+    else
+      flash.now[:alert] = "There was an error deleting the post."
+      render :show
+    end
+  end
+
   def update
 
+  end
+
+  private
+  def collaborator_params
+    params.require(:collaborator).permit(:email)
   end
 end
